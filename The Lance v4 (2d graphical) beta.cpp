@@ -17,9 +17,12 @@ public:
 
     void attack(Character &target) {
         int damage = attackPower - target.defense;
-        if (damage < 0) damage = 0;
+        if (damage < 0) {
+            damage = 0; // Ensure damage is not negative
+        }
         target.health -= damage;
         cout << name << " attacks " << target.name << " for " << damage << " damage!" << endl;
+    }
     }
 
     bool isAlive() {
